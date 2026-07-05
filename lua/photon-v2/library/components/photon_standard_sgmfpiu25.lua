@@ -1,5 +1,5 @@
 if (Photon2.ReloadComponentFile()) then return end
----@class PhotonStandardSGMFPIU20 : PhotonLibraryComponent
+---@class PhotonStandardSGMFPIU25 : PhotonLibraryComponent
 local COMPONENT = Photon2.LibraryComponent() --[[@as PhotonLibraryComponent]]
 
 COMPONENT.Author = "Photon"
@@ -13,7 +13,7 @@ COMPONENT.States = {
 	[2] = "B"
 }
 
-COMPONENT.Title = "2020 Ford Police Interceptor Utility"
+COMPONENT.Title = "2025 Ford Police Interceptor Utility"
 COMPONENT.Category = "Vehicle"
 
 COMPONENT.IsVirtual = true
@@ -21,16 +21,16 @@ COMPONENT.IsVirtual = true
 COMPONENT.Templates = {
 	["2D"] = {
 		Reverse = {
-			Width = 5.4,
-			Height = 5.4,
-			Shape = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rev_shape.png").MaterialName,
-			Detail = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rev_detail.png").MaterialName,
+			Width = 4,
+			Height = 12.5,
+			Shape = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_shape.png").MaterialName,
+			Detail = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_detail.png").MaterialName,
 			Scale = 2,
 			ForwardBloomOffset = 0.5
 		},
 		Turn = {
-			Width = 6.3,
-			Height = 6.3,
+			Width = 4,
+			Height = 12.5,
 			Shape = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_shape.png").MaterialName,
 			Detail = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_detail.png").MaterialName,
 			Scale = 1,
@@ -69,7 +69,7 @@ COMPONENT.Templates = {
 	},
 	["Mesh"] = {
 		Model = {
-			Model = "models/sentry/20fpiu_new.mdl",
+			Model = "models/sentry/25fpiu_new.mdl",
 			States = {
 				["BRIGHT"] = {
 					DrawColor = PhotonColor( 255, 116, 0 ),
@@ -138,7 +138,7 @@ COMPONENT.ElementGroups = {
 	["Brake"] = { 17, 18, 19, 20, 21 }
 }
 
-COMPONENT.StateMap = "[DIM] TailL TailR [W] HeadL HeadR HighL HighR [W/1/2] RevL [W/2/1] RevR [R] 21 [A] SigFL SigFR [A/1/2] SigRL [A/2/1] SigRR [W/1/2] 22 24 [W/2/1] 23 25"
+COMPONENT.StateMap = "[DIM] TailL TailR [W] HeadL HeadR HighL HighR [W/1/2] RevL [W/2/1] RevR [R] 21 [A] SigFL SigFR [R/1/2] SigRL [R/2/1] SigRR [W/1/2] 22 24 [W/2/1] 23 25"
 
 COMPONENT.Elements = {	
 	-- Headlights
@@ -163,21 +163,21 @@ COMPONENT.Elements = {
 	[11] = { "ForwardMarker", Vector( -43.4, 92.8, 49.3), Angle( -20, 72, 6 ) },
 	[12] = { "ForwardMarker", Vector( 43.4, 92.8, 49.3), Angle( 180+20, 180-72, -6 ) },
 
-	-- Signal Rear
-	[13] = { "Turn", Vector( -36.4, -122.6, 52.4 ), Angle( 0, 180-22.5, 0 ) },
-	[14] = { "Turn", Vector( 36.4, -122.6, 52.4 ), Angle( 0, 180+22.5, 0 ), FlipHorizontal = true },
+	-- Signal Rear / 2025 brakes
+	[13] = { "Turn", Vector( -37.99, -121.25, 50.63 ), Angle( 0, 180-25, 0 ) },
+	[14] = { "Turn", Vector( 37.99, -121.25, 50.63 ), Angle( 0, 180+25, 0 ), FlipHorizontal = true },
 
 	-- Reverse
-	[15] = { "Reverse", Vector( -36.4, -122.9, 47.9 ), Angle( 0, 180-22.5, 0 ) },
-	[16] = { "Reverse", Vector( 36.4, -122.9, 47.9 ), Angle( 0, 180+22.5, 0 ), FlipHorizontal = true },
+	[15] = { "Reverse", Vector( -35.542, -122.55, 50.656 ), Angle( 0, 180-25, 0 ) },
+	[16] = { "Reverse", Vector( 35.542, -122.55, 50.656 ), Angle( 0, 180+25, 0 ), FlipHorizontal = true },
 
 	-- Tail
-	[17] = { "Model", Vector( 0, 0, 0 ), Angle( 0, 90, 0 ), "sentry/20fpiu_new/tail_l", DrawMaterial = "photon/materials/sgm_fpiu20_tail_bright" },
-	[18] = { "Model", Vector( 0, 0, 0 ), Angle( 0, 90, 0 ), "sentry/20fpiu_new/tail_r", DrawMaterial = "photon/materials/sgm_fpiu20_tail_bright" },
+	[17] = { "Model", Vector( 0, 0, 0 ), Angle( 0, 90, 0 ), "sentry/25fpiu_new/tail_l", DrawMaterial = "photon/materials/sgm_fpiu25_tail_bright" },
+	[18] = { "Model", Vector( 0, 0, 0 ), Angle( 0, 90, 0 ), "sentry/25fpiu_new/tail_r", DrawMaterial = "photon/materials/sgm_fpiu25_tail_bright" },
 
 	-- Tail Sub-Materials
-	[19] = { "TailSubMaterial", Indexes = { 17 } },
-	[20] = { "TailSubMaterial", Indexes = { 19 } },
+	[19] = { "TailSubMaterial", Indexes = { 29 } },
+	[20] = { "TailSubMaterial", Indexes = { 28 } },
 
 	-- Center Brake
 	[21] = { "MeshExtra", Vector( 0, 1.1, -1 ), Angle( 0, 0, 0 ), "photon/vehicle/bra_rc", Scale = 1.012 },
@@ -208,9 +208,19 @@ COMPONENT.Segments = {
 			["PARK"] = { 3 }
 		}
 	},
+	Taillight_flashers = {
+		Frames = {
+			[0] = "[PASS] TailL TailR Reverse",
+			[1] = "[BRIGHT] TailL TailR",
+			[2] = "Reverse",
+		},
+		Sequences = {
+			["ON"] = sequence():Alternate(1,2,8,2),
+		}
+	},
 	Brake = {
 		Frames = {
-			[1] = "[BRIGHT] TailL TailR [R] BrakeC"
+			[1] = "[R] BrakeC 13 14"
 		},
 		Sequences = {
 			ON = { 1 }
@@ -228,7 +238,7 @@ COMPONENT.Segments = {
 	},
 	RearSignalL = {
 		Frames = {
-			[0] = "[PASS] SigRL",
+			--[0] = "[PASS] SigRL",
 			[1] = "SigRL",
 			[2] = "[2] SigRL",
 			[3] = "[3] SigRL",
@@ -241,7 +251,7 @@ COMPONENT.Segments = {
 	},
 	RearSignalR = {
 		Frames = {
-			[0] = "[PASS] SigRR",
+			--[0] = "[PASS] SigRR",
 			[1] = "SigRR",
 			[2] = "[2] SigRR",
 			[3] = "[3] SigRR",
@@ -361,6 +371,9 @@ COMPONENT.Inputs = {
 		},
 		["PARKING"] = {
 			Headlights = "PARK",
+		},
+		["DRL"] = {
+			Headlights = "PARK",
 		}
 	},
 	["Vehicle.Brake"] = {
@@ -401,6 +414,7 @@ COMPONENT.Inputs = {
 			HighBeamR = "WIGWAG",
 			HeadlightL = "WIGWAG",
 			HeadlightR = "WIGWAG",
+			Taillight_flashers = "ON",
 		}
 	},
 	["Emergency.SceneForward"] = {
