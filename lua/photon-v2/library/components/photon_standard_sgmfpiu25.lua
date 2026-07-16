@@ -193,7 +193,7 @@ local sequence = Photon2.SequenceBuilder.New
 
 -- Special component attributes
 COMPONENT.Features = {
-	AutomaticHeadlights = true
+	--AutomaticHeadlights = true
 }
 COMPONENT.Segments = {
 	Headlights = {
@@ -220,7 +220,7 @@ COMPONENT.Segments = {
 	},
 	Brake = {
 		Frames = {
-			[1] = "[R] BrakeC 13 14"
+			[1] = "17 18 [R] BrakeC 13 14"
 		},
 		Sequences = {
 			ON = { 1 }
@@ -372,9 +372,9 @@ COMPONENT.Inputs = {
 		["PARKING"] = {
 			Headlights = "PARK",
 		},
-		["DRL"] = {
-			Headlights = "PARK",
-		}
+		--["DRL"] = {
+			--Headlights = "PARK",
+		--}
 	},
 	["Vehicle.Brake"] = {
 		["BRAKE"] = {
