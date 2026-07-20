@@ -211,7 +211,7 @@ COMPONENT.Segments = {
 	Taillight_flashers = {
 		Frames = {
 			[0] = "[PASS] TailL TailR Reverse",
-			[1] = "[BRIGHT] TailL TailR",
+			[1] = "TailL TailR",
 			[2] = "Reverse",
 		},
 		Sequences = {
@@ -220,7 +220,7 @@ COMPONENT.Segments = {
 	},
 	Brake = {
 		Frames = {
-			[1] = "17 18 [R] BrakeC 13 14"
+			[1] = "TailL TailR [R] BrakeC 13 14"
 		},
 		Sequences = {
 			ON = { 1 }
