@@ -339,12 +339,33 @@ COMPONENT.Segments = {
 		Frames = {
 			[0] = "[PASS] Cen_1 Cen_2 Cen_3 Cen_4 Cen_5 Cen_6 Cen_7 Cen_15 Cen_16 Cen_17 Cen_18 Cen_19 Cen_20 Cen_21 Cen_22 Cen_23 Cen_24",
 			[1] = "[W] Cen_2 Cen_6 25 26 [OFF] Pri_2 Pri_6 Sec_2 Sec_6",
-			[2] = "[W] Cen_1 Cen_2 Cen_3 Cen_4 Cen_5 Cen_6 Cen_7 Cen_15 Cen_16 Cen_17 Cen_18 Cen_19 Cen_20 Cen_21 Cen_22 Cen_23 Cen_24 27 28 29 [OFF]  Pri_1 Pri_2 Pri_3 Pri_4 Pri_5 Pri_6 Pri_7 Pri_15 Pri_16 Pri_17 Pri_18 Pri_19 Pri_20 Pri_21 Pri_22 Pri_23 Pri_24  Sec_1 Sec_2 Sec_3 Sec_4 Sec_5 Sec_6 Sec_7 Sec_15 Sec_16 Sec_17 Sec_18 Sec_19 Sec_20 Sec_21 Sec_22 Sec_23 Sec_24",
+			[2] = "[W] Cen_1 Cen_2 Cen_3 Cen_4 Cen_5 Cen_6 Cen_7 Cen_15 Cen_16 Cen_17 Cen_18 Cen_19 Cen_20 Cen_21 Cen_22 Cen_23 Cen_24 27 28 29 [OFF] Pri_1 Pri_2 Pri_3 Pri_4 Pri_5 Pri_6 Pri_7 Pri_15 Pri_16 Pri_17 Pri_18 Pri_19 Pri_20 Pri_21 Pri_22 Pri_23 Pri_24 Sec_1 Sec_2 Sec_3 Sec_4 Sec_5 Sec_6 Sec_7 Sec_15 Sec_16 Sec_17 Sec_18 Sec_19 Sec_20 Sec_21 Sec_22 Sec_23 Sec_24",
+
 		},
 		Sequences = {
 			["ON"] = { 1, },
 			["FLOOD"] = { 2, },
 
+		}
+	},
+	Alley_L = {
+		Frames = {
+			[0] = "[PASS] Cen_15 Cen_16 Cen_17 Cen_18 Cen_19",
+			[1] = "[W] Cen_15 Cen_16 Cen_17 Cen_18 Cen_19 28 [OFF] Pri_15 Pri_16 Pri_17 Pri_18 Pri_19 Sec_15 Sec_16 Sec_17 Sec_18 Sec_19 ",
+
+		},
+		Sequences = {
+			["LEFT"] = { 1, },
+		}
+	},
+	Alley_R = {
+		Frames = {
+			[0] = "[PASS] Cen_20 Cen_21 Cen_22 Cen_23 Cen_24",
+			[1] = "[W] Cen_20 Cen_21 Cen_22 Cen_23 Cen_24 29 [OFF] Pri_20 Pri_21 Pri_22 Pri_23 Pri_24 Sec_20 Sec_21 Sec_22 Sec_23 Sec_24",
+
+		},
+		Sequences = {
+			["RIGHT"] = { 1 },
 		}
 	},
 	Traffic = {
@@ -410,6 +431,16 @@ COMPONENT.Inputs = {
 		},
 		["FLOOD"] = {
 			Takedown = "FLOOD",
+		},
+	},
+	["Emergency.SceneLeft"] = {
+		["ON"] = {
+			Alley_L = "LEFT",
+		},
+	},
+	["Emergency.SceneRight"] = {
+		["ON"] = {
+			Alley_R = "RIGHT",
 		},
 	},
 }

@@ -26,7 +26,7 @@ COMPONENT.Templates = {
 			Shape = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_shape.png").MaterialName,
 			Detail = PhotonMaterial.GenerateLightQuad("photon/lights/sgm_fpiu20_rsig_detail.png").MaterialName,
 			Scale = 2,
-			ForwardBloomOffset = 0.5
+			ForwardBloomOffset = 0.0
 		},
 		Turn = {
 			Width = 4,
@@ -93,6 +93,23 @@ COMPONENT.Templates = {
 				["BRIGHT"] = { Material = "photon/common/blank" },
 				["DIM"] = { Material = "photon/common/blank" }
 			}
+		},
+		IntSubMaterial = {
+			States = {
+				["ON"] = { Material = "sentry/20fpiu_new/interior_on" },
+			}
+		},
+	},
+	["Projected"] = {
+		Projected = {
+			FOV = 80,
+			Texture = "effects/flashlight/soft",
+			NearZ = 4,
+			FarZ = 2000,
+			Brightness = 3,
+			IntensityGainFactor = 12,
+			IntensityLossFactor = 6,
+			
 		}
 	},
 }
@@ -115,11 +132,11 @@ COMPONENT.ElementStates = {
 
 
 COMPONENT.ElementGroups = {
-	["HeadL"] = { 1, 3 },
-	["HeadR"] = { 2, 4 },
+	["HeadL"] = { 1, 3, 27 },
+	["HeadR"] = { 2, 4, 28 },
 	
-	["HighL"] = { 5, 7 },
-	["HighR"] = { 6, 8 },
+	["HighL"] = { 5, 7, 29 },
+	["HighR"] = { 6, 8, 30 },
 	
 	["SigFL"] = { 9, 11 },
 	["SigFR"] = { 10, 12 },
@@ -138,7 +155,7 @@ COMPONENT.ElementGroups = {
 	["Brake"] = { 17, 18, 19, 20, 21 }
 }
 
-COMPONENT.StateMap = "[DIM] TailL TailR [W] HeadL HeadR HighL HighR [W/1/2] RevL [W/2/1] RevR [R] 21 [A] SigFL SigFR [R/1/2] SigRL [R/2/1] SigRR [W/1/2] 22 24 [W/2/1] 23 25"
+COMPONENT.StateMap = "[DIM] TailL TailR [W] HeadL HeadR HighL HighR [W/1/2] RevL [W/2/1] RevR [R] 21 [A] SigFL SigFR [R/1/2] SigRL [R/2/1] SigRR [W/1/2] 22 24 [W/2/1] 23 25 [ON] 26"
 
 COMPONENT.Elements = {	
 	-- Headlights
@@ -187,6 +204,15 @@ COMPONENT.Elements = {
 	[23] = { "Fog", Vector( 30.2, 113.7, 33.4 ), Angle( 0, -25, -5 ) },
 	[24] = { "Fog", Vector( -34, 112, 33.85 ), Angle( 0, 25, 5 ) },
 	[25] = { "Fog", Vector( 34, 112, 33.85 ), Angle( 0, -25, -5 ) },
+	-- Interior
+	[26] = { "IntSubMaterial", Indexes = { 8 } },
+
+	--projected headlights
+	[27] = { "Projected", Vector( -36.4, 99.5, 49.2 ), Rotation = Angle( 0, 90, 0 ) },
+	[28] = { "Projected", Vector( 36.4, 99.5, 49.2 ), Rotation = Angle( 0, 90, 0 ) },
+
+	[29] = { "Projected", Vector( -28.8, 105.1, 48.6 ), Rotation = Angle( 0, 90, 0 ) },
+	[30] = { "Projected", Vector( 28.8, 105.1, 48.6 ), Rotation = Angle( 0, 90, 0 ) },
 }
 
 local sequence = Photon2.SequenceBuilder.New
@@ -198,9 +224,9 @@ COMPONENT.Features = {
 COMPONENT.Segments = {
 	Headlights = {
 		Frames = {
-			[1] = "HeadL HeadR TailL TailR [A0.5] SigFL SigFR",
-			[2] = "HeadL HeadR HighL HighR TailL TailR [A0.5] SigFL SigFR",
-			[3] = "TailL TailR [A0.5] SigFL SigFR"
+			[1] = "26 HeadL HeadR TailL TailR [A0.5] SigFL SigFR",
+			[2] = "26 HeadL HeadR HighL HighR TailL TailR [A0.5] SigFL SigFR",
+			[3] = "26 TailL TailR [A0.5] SigFL SigFR"
 		},
 		Sequences = {
 			["HEADLIGHTS"] = { 1 },

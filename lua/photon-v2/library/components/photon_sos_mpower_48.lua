@@ -347,6 +347,26 @@ COMPONENT.Segments = {
 
 		}
 	},
+	Alley_L = {
+		Frames = {
+			[0] = "[PASS] Cen_15 Cen_16 Cen_17 Cen_18 Cen_19",
+			[1] = "[W] Cen_15 Cen_16 Cen_17 Cen_18 Cen_19 28 [OFF] Pri_15 Pri_16 Pri_17 Pri_18 Pri_19 Sec_15 Sec_16 Sec_17 Sec_18 Sec_19 ",
+
+		},
+		Sequences = {
+			["LEFT"] = { 1, },
+		}
+	},
+	Alley_R = {
+		Frames = {
+			[0] = "[PASS] Cen_20 Cen_21 Cen_22 Cen_23 Cen_24",
+			[1] = "[W] Cen_20 Cen_21 Cen_22 Cen_23 Cen_24 29 [OFF] Pri_20 Pri_21 Pri_22 Pri_23 Pri_24 Sec_20 Sec_21 Sec_22 Sec_23 Sec_24",
+
+		},
+		Sequences = {
+			["RIGHT"] = { 1 },
+		}
+	},
 	Traffic = {
 		Frames = {
 			[1] = "[A] Cen_14 [OFF] Pri_8 Pri_9 Pri_10 Pri_12 Pri_13 Pri_14  Sec_8 Sec_9 Sec_10 Sec_12 Sec_13 Sec_14",
@@ -410,6 +430,16 @@ COMPONENT.Inputs = {
 		},
 		["FLOOD"] = {
 			Takedown = "FLOOD",
+		},
+	},
+	["Emergency.SceneLeft"] = {
+		["ON"] = {
+			Alley_L = "LEFT",
+		},
+	},
+	["Emergency.SceneRight"] = {
+		["ON"] = {
+			Alley_R = "RIGHT",
 		},
 	},
 }
