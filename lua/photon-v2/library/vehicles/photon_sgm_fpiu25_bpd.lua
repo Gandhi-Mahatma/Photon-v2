@@ -432,6 +432,9 @@ VEHICLE.Equipment = {
 						Scale = 0.9,
 						Phase = 0,
 						States = {"R"},
+						SubMaterials = {
+							["sentry/props/soundofffascia/soundoff"] = "sentry/props/soundofffascia/soundoff_flipped",
+						},
 						BodyGroups = {
 							["mount"] = 1,
 						},
@@ -503,6 +506,9 @@ VEHICLE.Equipment = {
 						Scale = 0.9,
 						Phase = 90,
 						States = {"B"},
+						SubMaterials = {
+							["sentry/props/soundofffascia/soundoff"] = "",
+						},
 						Inputs = {
 							["Emergency.Warning"] = {
 								["MODE1"] = {
@@ -519,6 +525,9 @@ VEHICLE.Equipment = {
 						Scale = 0.9,
 						Phase = 90,
 						States = {"B"},
+						SubMaterials = {
+							["sentry/props/soundofffascia/soundoff"] = "",
+						},
 						Inputs = {
 							["Emergency.Warning"] = {
 								["MODE1"] = {
@@ -541,6 +550,9 @@ VEHICLE.Equipment = {
 						Scale = 0.9,
 						Phase = 90,
 						States = {"B"},
+						SubMaterials = {
+							["sentry/props/soundofffascia/soundoff"] = "",
+						},
 						Inputs = {
 							["Emergency.Warning"] = {
 								["MODE1"] = {
